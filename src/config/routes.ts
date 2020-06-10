@@ -2,6 +2,7 @@ import { AboutController } from "../controllers/about.controller";
 import { DocumentController } from "../controllers/document.controller";
 import { check, validationResult } from "express-validator";
 import { Request, Response, NextFunction } from "express";
+import * as cors from "cors";
 
 export function validateParameters(req: Request, res: Response) {
   const errors = validationResult(req);
@@ -14,7 +15,16 @@ export class Routes {
   public aboutController: AboutController = new AboutController();
   public documentController: DocumentController = new DocumentController();
 
-  public middlewares(router): void {}
+  public middlewares(router): void {
+    const options:cors.CorsOptions = {
+      credentials: true,
+      methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+      origin: "*",
+      preflightContinue: false
+    };
+    router.use(cors(options));
+    router.options("*", cors(options));
+  }
 
   public routes(app): void {
     app.get("/", this.aboutController.index);

@@ -1,0 +1,7 @@
+<div>
+{{ title }}
+
+{{ author }}
+
+{{{ html }}}
+</div>
