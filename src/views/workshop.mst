@@ -1,7 +1,105 @@
-<div>
-{{ title }}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../styles/workshop.css">
+    </head>
+    <body>
+        <div class="outline">
+            <div class="box-outline"></div>
+        </div>
+        <div class="first-page">
+            <img class="logo" src="https://i.ibb.co/C6FD8VX/logo-cut-CODE4.png" border="0">
+            <div class="title">
+                <img class="fun-logo" src="https://i.ibb.co/3SGdqrz/New-Logo-PNG-FUN.png" border="0">
+                <h1>{{ title }}</h1>
+                <p>{{ author }}</p>
+            </div>
+            <div class="social-icons">
+                <img src="https://image.flaticon.com/icons/svg/2111/2111392.svg" border="0"><span>@CODE4Mtp</span><br>
+                <img src="https://image.flaticon.com/icons/png/512/2111/2111738.png" border="0"><span>@CODE4Mtp</span><br>
+                <img src="https://image.flaticon.com/icons/png/512/2111/2111491.png" border="0"><span>@code4_mtp</span>
+            </div>
+        </div>
+        <div class="content">
+            {{{ html }}}
+        </div>
+    </body>
+    <style>
+        * {
+            font-family: "Gill Sans", sans-serif;
+        }
 
-{{ author }}
+        @page {
+            margin: 40px 40px 40px 40px;
+        }
 
-{{{ html }}}
-</div>
+        @page:first {
+            margin: 0px 0px 0px 0px;
+        }
+
+        .outline {
+            position: absolute;
+            display: block;
+            height: 100vh;
+            width: 100vw;
+            padding: 15px;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            z-index: 500;
+        }
+
+        .outline > .box-outline {
+            border-radius: 15px;
+            height: 100%;
+            width: 100%;
+            border: 1.5px solid black;
+        }
+
+        .logo {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 20px;
+            left: 30px;
+        }
+
+        .social-icons {
+            position: absolute;
+            bottom: 40px;
+            left: calc(50% - 20px);
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .social-icons > img {
+            margin-left: 20px;
+            width: 32px;
+            height: 32px;
+        }
+
+        .social-icons > span {
+            margin-left: 10px;
+        }
+
+        .first-page {
+            height: 100vh;
+            width: 100vw;
+            text-align: center;
+            position: relative;
+        }
+
+        .first-page > .title {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .first-page > .title > h1 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</html>
